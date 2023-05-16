@@ -2,4 +2,6 @@
 
 __author__ = """Emma Hovhannisyan"""
 __email__ = 'emmahovhannisyan02@gmail.com'
-__version__ = '0.1.0'
+__version__ = '0.1.1'
+
+from rfmanalysis.rfmanalysis import RFMAnalysis, RFMVisualizer
