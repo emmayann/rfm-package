@@ -79,9 +79,7 @@ Here's an example of how to use these classes:
 
     # Visualize RFM analysis
     visualizer = RFMVisualizer()
-    visualizer.plot_rfm(
-
-analysis.rfm_data)
+    visualizer.plot_rfm(analysis.rfm_data)
     visualizer.visualize_segments(analysis.rfm_data)
     visualizer.segment_distribution_barplot(analysis.rfm_data)
     visualizer.segment_boxplot(analysis.rfm_data)
