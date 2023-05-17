@@ -57,6 +57,21 @@ class RFMAnalysis:
         self.date_col = date_col
         self.revenue_col = revenue_col
         self.rfm_data = None
+    
+    def process_data(self):
+        """
+        Applies all the transformation to the given data.
+
+        """
+        methods = (self.create_rfm_columns, 
+                   self.scale_rfm_columns, 
+                   self.rfm_scores, 
+                   self.give_names_to_segments, 
+                   self.segments_distribution)
+       
+        for method in methods:
+            method()
+        
 
     def create_rfm_columns(self):
         """
@@ -116,22 +131,22 @@ class RFMAnalysis:
         """
 
         rfm_score = row['RFM_Score']
-
+        
         if rfm_score >= 9:
             return "Can't Lose Them"
-        elif 8 <= rfm_score < 9:
+        elif rfm_score >= 8:
             return "Champions"
-        elif 7 <= rfm_score < 8:
+        elif rfm_score >=7:
             return "Loyal/Committed"
-        elif 6 <= rfm_score < 7:
+        elif rfm_score >= 6:
             return "Potential"
-        elif 5 <= rfm_score < 6:
+        elif rfm_score >= 5:
             return "Promising"
-        elif 4 <= rfm_score < 5:
+        elif rfm_score >= 4:
             return "Requires Attention"
         else:
             return "Demands Activation"
-
+    
     def give_names_to_segments(self):
         """
         Assigns segment names to each customer based on RFM scores.
@@ -180,6 +195,22 @@ class RFMVisualizer:
             Creates bar plots to compare the mean values of RFM variables across segments.
 
     """
+    @classmethod
+    def visualize_data(cls,data):
+        """
+        Applies all the visualization to the given transformed data.
+
+        """
+        methods = (cls.plot_rfm, 
+                   cls.visualize_segments, 
+                   cls.segment_boxplot, 
+                   cls.segment_distribution_barplot, 
+                   cls.segment_comparison)
+       
+        for method in methods:
+            method(data)
+        
+
     @staticmethod
     def plot_rfm(rfm_data):
         """
@@ -191,11 +222,11 @@ class RFMVisualizer:
         """
         plt.figure(figsize=(12, 10))
         plt.subplot(3, 1, 1)
-        sns.distplot(rfm_data['Recency'])
+        sns.histplot(rfm_data['Recency'], kde=True)
         plt.subplot(3, 1, 2)
-        sns.distplot(rfm_data['Frequency'])
+        sns.histplot(rfm_data['Frequency'], kde=True)
         plt.subplot(3, 1, 3)
-        sns.distplot(rfm_data['Monetary'])
+        sns.histplot(rfm_data['Monetary'], kde=True)
         plt.tight_layout()
         plt.show()
 

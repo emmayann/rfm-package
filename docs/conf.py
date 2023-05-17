@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'rfmanalysis'
+project = 'rfmanalysis'
 copyright = "2023, Emma Hovhannisyan"
 author = "Emma Hovhannisyan"
 
@@ -128,7 +128,7 @@ latex_elements = {
 # [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'rfmanalysis.tex',
-     'rfmanalysis Documentation',
+     'rfmanalysis Documentation',
      'Emma Hovhannisyan', 'manual'),
 ]
 
@@ -139,7 +139,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     (master_doc, 'rfmanalysis',
-     'rfmanalysis Documentation',
+     'rfmanalysis Documentation',
      [author], 1)
 ]
 
@@ -151,7 +151,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'rfmanalysis',
-     'rfmanalysis Documentation',
+     'rfmanalysis Documentation',
      author,
      'rfmanalysis',
      'One line description of project.',
